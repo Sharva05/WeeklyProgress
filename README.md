@@ -157,3 +157,27 @@
 - Vishon: Configured a Docker Compose logging stack with PostgreSQL, Elasticsearch, Grafana, and Kibana. Updated service setup, secured credentials using .env, and added .gitignore. Successfully tested all containers locally and verified integration.
 
 - Shreeraksha M: Validated and tuned the rule-based scoring system by experimenting with multiple datasets and refining weight configurations for improved log scoring. Initiated the ML anomaly detection pipeline by implementing a z-score based baseline and structuring the anomaly detection module in preparation for Isolation Forest integration and hybrid scoring.
+
+---
+
+## **CPP Meeting 10: 05/05/26**
+
+### Discussion:
+
+- Presented the project PPT covering the problem statement, overall approach, architecture design, current progress, and planned ML-based workflow.
+- Discussed the implementation and validation status of the rule-based scoring system and demonstrated the current pipeline flow.
+- The mentor reviewed the presentation and asked questions regarding the scoring methodology, limitations of the rule-based approach, and the transition toward ML-based anomaly detection.
+- Further discussion focused on the planned use of Isolation Forest, correlation mechanisms across logs, and integration of multiple signals for improved importance scoring and root cause analysis.
+
+
+### Contribution:
+
+- Sumukha: Implemented the correlation/graph_builder.py module in the correlation layer. Built a weighted undirected co-occurrence graph from parsed log events, linked flagged anomaly events to dedicated anomaly nodes, and added configurable parameters for the time window and node cap. Also added 23 unit tests and a manual inspection script.
+
+- Ujwal: Initialized the scoring module structure and configuration by defining scoring weights, label thresholds, and DBSCAN parameters. Set up module stubs, input/output contracts, and updated the README with scoring pipeline documentation.
+
+- Sharva: Was occupied with a family function this week.
+
+- Vishon: Defined the PostgreSQL schema structure for logs and related pipeline data, verified table creation and consistency locally using Docker, configured the db_writer module to align with the database schema, created Elasticsearch index mappings for log fields, and implemented centralized .env-based environment variable handling with validation support.
+
+- Shreeraksha M: Initiated the ML anomaly detection module by implementing the Isolation Forest–based anomaly detector skeleton with configurable contamination and hybrid scoring parameters. Worked on the initial trainer module structure for retraining and model serialization, documented key ML design decisions, and added preliminary tests for anomaly output and schema validation.
